@@ -4,6 +4,7 @@ const { ipcRenderer } = require('electron');
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const idProducto = urlParams.get('id');
+console.log('Valor de productoId en la página de edición:', idProducto);
 
 // Esperar a que el DOM se cargue completamente
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,14 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const fechaCompraInput = document.querySelector('#fecha_compra');
   const codigoBarrasInput = document.querySelector('#codigo_barras');
 
-
   // Enviar mensaje al proceso principal para obtener los datos del producto correspondiente
   ipcRenderer.send('obtener-producto', idProducto);
+  console.log('Valor de productoId en la página de edición:', idProducto);
 
   // Escuchar el evento de cancelar
-  cancelarButton.addEventListener('click', () => {
-    window.location.href = 'productos.html';
-  });
+cancelarButton.addEventListener('click', () => {
+  window.location.href = 'productos.html';
+});
 
   // Escuchar el evento de envío del formulario
   formulario.addEventListener('submit', (event) => {

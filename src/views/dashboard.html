@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <style>
+    /* Agrega estilos CSS según sea necesario */
+  </style>
+</head>
+<body>
+  <h1>Dashboard</h1>
+  <div>
+    <label for="select-temporalidad">Temporalidad:</label>
+    <select id="select-temporalidad">
+      <option value="hoy">Hoy</option>
+      <option value="semana">Esta semana</option>
+      <option value="mes">Este mes</option>
+      <option value="mes-anterior">Mes anterior</option>
+      <option value="primera-quincena">Esta 1ra quincena</option>
+      <option value="segunda-quincena">Esta 2da quincena</option>
+      <option value="personalizado">Personalizado</option>
+    </select>
+    <label for="input-fecha-inicio">Fecha inicio:</label>
+    <input type="date" id="input-fecha-inicio" disabled>
+    <label for="input-fecha-fin">Fecha fin:</label>
+    <input type="date" id="input-fecha-fin" disabled>
+    <button id="btn-generar">Generar</button>
+  </div>
+  <div id="card-ingresos">
+    <h2>Ingresos</h2>
+    <!-- Aquí se mostrarán los datos de ingresos -->
+  </div>
+  <div id="card-egresos">
+    <h2>Egresos</h2>
+    <!-- Aquí se mostrarán los datos de egresos -->
+  </div>
+  <div id="card-ganancia-perdida">
+    <h2>Ganancia o pérdida</h2>
+    <!-- Aquí se mostrarán los datos de ganancia o pérdida -->
+  </div>
+  <div id="tabla-productos-vendidos">
+    <h2>Productos más vendidos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí se mostrarán los datos de los productos más vendidos -->
+      </tbody>
+    </table>
+  </div>
+  <div id="tabla-logs">
+    <h2>Logs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Tipo</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí se mostrarán los datos de los logs -->
+      </tbody>
+    </table>
+  </div>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

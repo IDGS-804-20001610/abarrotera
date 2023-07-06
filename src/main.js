@@ -19,7 +19,7 @@ function createWindow() {
 
   mainWindow.loadURL(
     url.format({
-      pathname: path.join(__dirname, 'views/login.html'),
+      pathname: path.join(__dirname, 'views/productos.html'),
       protocol: 'file:',
       slashes: true,
     })
@@ -81,7 +81,7 @@ ipcMain.on('login', (event, { username, password }) => {
 
         mainWindow.loadURL(
           url.format({
-            pathname: path.join(__dirname, './views/productos.html'),
+            pathname: path.join(__dirname, './views/dashboard.html'),
             protocol: 'file:',
             slashes: true,
           })
@@ -92,9 +92,6 @@ ipcMain.on('login', (event, { username, password }) => {
     }
   });
 });
-
-
-
 
 // ...
 

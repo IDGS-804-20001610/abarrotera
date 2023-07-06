@@ -81,7 +81,7 @@ ipcMain.on('login', (event, { username, password }) => {
 
         mainWindow.loadURL(
           url.format({
-            pathname: path.join(__dirname, './views/ventas.html'),
+            pathname: path.join(__dirname, './views/productos.html'),
             protocol: 'file:',
             slashes: true,
           })
@@ -100,7 +100,6 @@ ipcMain.on('login', (event, { username, password }) => {
 
 ipcMain.on('open-productos-form', (event, productosFormURL, productoId) => {
   console.log('productoId:', productoId); // Agregar esta línea
-
   if (productoId !== null && productoId !== undefined) {
     // Editar producto existente
     const query = 'SELECT * FROM productos WHERE id = ?';

@@ -173,31 +173,32 @@ ipcRenderer.on('producto-venta-agregado', (event, detalleVenta) => {
       productoId: parseInt(productoId),
       // Resto de las propiedades del producto
     };
-    
-    // Verificar si el ID del producto es válido
-    if (isNaN(producto.productoId)) {
-      console.error('Error: el valor del ID del producto no es válido');
-      return;
-    }
 
 // Asignar el valor del total de la venta a detalleVenta.total
 detalleVenta.total = totalVenta;
 
-// Asignar el valor del ID del producto a detalleVenta.productoId
-detalleVenta.productoId = producto.productoId;
+// Verificar si el ID del producto es válido
+if (isNaN(detalleVenta.productoId)) {
+  console.error('Error: el valor del ID del producto no es válido');
+  return;
+}
 
-    // Enviar detalleVentaJSON al proceso principal
-    try {
-      const detalleVentaJSON = JSON.stringify(detalleVenta);
-      JSON.parse(detalleVentaJSON); // Verificar si es un JSON válido
-      ipcRenderer.send('agregar-venta', {
-        fechaVenta: fechaVenta,
-        //total: detalleVenta.total,
-        detalleVenta: detalleVentaJSON,
-      });
-    } catch (error) {
-      console.error('Error al convertir detalleVenta a JSON:', error);
-    }
+// Asignar el valor del ID del producto a detalleVenta.productoId
+detalleVenta.productoId = parseInt(productoId);
+
+
+// Enviar detalleVentaJSON al proceso principal
+try {
+  const detalleVentaJSON = JSON.stringify(detalleVenta);
+  JSON.parse(detalleVentaJSON); // Verificar si es un JSON válido
+  ipcRenderer.send('agregar-venta', {
+    fechaVenta: fechaVenta,
+    detalleVenta: detalleVentaJSON,
+  });
+} catch (error) {
+  console.error('Error al convertir detalleVenta a JSON:', error);
+}
+
   }
 });
 

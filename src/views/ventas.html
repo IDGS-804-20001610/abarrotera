@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventas</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: space-between;
+    }
+table {
+  width: 75%;
+}
+
+#formulario-container {
+  width: 25%;
+}
+  </style>
+</head>
+<body>
+  <div>
+  <h1>Lista de Ventas</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+        <th>Subtotal</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="ventas-table-body">
+      <!-- Aquí se mostrarán los productos agregados dinámicamente -->
+    </tbody>
+  </table>
+  <label id="total-venta">0.00</label>
+</div>
+  <div id="formulario-container">
+    <h2>Buscar Producto</h2>
+<form id="buscar-producto-form">
+  <label for="input-buscar">Buscar por código de barras o nombre:</label>
+  <input type="text" id="input-buscar" required>
+
+  <select id="select-producto" disabled>
+    <option value="" disabled selected>Seleccione un producto</option>
+    <!-- Las opciones se agregarán dinámicamente -->
+  </select>
+
+  <label for="input-cantidad">Cantidad:</label>
+  <input type="number" id="input-cantidad" min="1" value="1" required>
+
+  <label for="unidad-medida">Unidad de Medida:</label>
+  <input type="text" id="unidad-medida" disabled>
+
+  <button type="button" id="btn-agregar">Añadir</button>
+</form>
+
+<div id="cobro-container" style="display: none;">
+  <h2>Cobro</h2>
+  <label for="input-pago">Dinero del cliente:</label>
+  <input type="number" id="input-pago" min="0" step="0.01" required>
+
+  <label for="cambio">Cambio:</label>
+  <label id="cambio">0.00</label>
+
+  <button type="button" id="btn-cobrar" disabled>Cobrar</button>
+</div>
+
+<div id="terminar-container">
+  <button type="button" id="btn-terminar">Terminar</button>
+</div>
+</div>
+  <script src="../assets/js/ventas.js"></script>
+</body>
+</html>
